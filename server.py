@@ -4,6 +4,8 @@ from pythonosc import osc_server
 from typing import List, Any
 import time
 
+t = time.time()
+
 def set_filter(address: str, *args: List[Any]) -> None:
     # We expect two float arguments
     if len(args) != 4:
@@ -13,7 +15,7 @@ def set_filter(address: str, *args: List[Any]) -> None:
     if address[:28] != '/muse/elements/beta_relative':
         return
 
-    print(f'{time.time()}, {args[0]}, {args[1]}, {args[2]}, {args[3]}')
+    print(f'{time.time() - t}, {args[0]}, {args[1]}, {args[2]}, {args[3]}')
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
