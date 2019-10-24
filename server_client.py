@@ -16,11 +16,11 @@ if __name__ == "__main__":
     client = udp_client.UDPClient(args.ip, args.port)
 
     for x in range(10):
-        msg = osc_message_builder.OscMessageBuilder(address="/muse/elements/beta_relative")
-        msg.add_arg("a")
-        msg.add_arg("1")
-        msg.add_arg("s")
-        msg.add_arg("bd")
+        msg = osc_message_builder.OscMessageBuilder(address='/muse/elements/beta_relative')
+        msg.add_arg("ch1")
+        msg.add_arg("ch2")
+        msg.add_arg("ch3")
+        msg.add_arg("ch4")
         msg = msg.build()
         print("Sending", msg.dgram)
         client.send(msg)
