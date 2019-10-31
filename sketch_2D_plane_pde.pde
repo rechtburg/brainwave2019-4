@@ -1,12 +1,11 @@
-import oscP5.*;
 import netP5.*;
+import oscP5.*;
 
 int port = 5001;
 float center = 6*width;
-OscP5 osc;
+OscP5 osc = new OscP5(this, port);
 
 void setup() {
-  osc = new OscP5(this, port);
   size(1200, 800);
   frameRate(20); 
 }
@@ -15,17 +14,14 @@ int v = 0;
 
 void oscEvent(OscMessage msg){
   if(msg.checkAddrPattern("/move")){
-    fill(0);
-    textSize(25);
-    text("received", 50, 50);
-    v = msg.get(0).intValue();
+      v = msg.get(0).intValue();
   }
 }
 
 void draw() {
   background(255);
  
-  center += 5*v;
+  center += v;
   fill(0);
   textSize(25);
   text("v:" + " " + v, 100, 100);
@@ -33,7 +29,6 @@ void draw() {
   float p_width = p_height;
   float b_width = p_width*0.065;
   float y = height-0.5*p_height;
-  v = 0;
   //back
   stroke(0);
   fill(255);
