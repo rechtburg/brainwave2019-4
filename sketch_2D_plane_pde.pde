@@ -10,17 +10,18 @@ void setup() {
   frameRate(20); 
 }
 
-int v = 0;
+float v = 0;
 
 void oscEvent(OscMessage msg){
   if(msg.checkAddrPattern("/move")){
-      v = msg.get(0).intValue();
+      v = msg.get(0).floatValue();
+      System.out.println(v);
   }
 }
 
 void draw() {
   background(255);
- 
+   System.out.println(v);
   center += v;
   fill(0);
   textSize(25);
