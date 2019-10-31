@@ -15,6 +15,9 @@ int v = 0;
 
 void oscEvent(OscMessage msg){
   if(msg.checkAddrPattern("/move")){
+    fill(0);
+    textSize(25);
+    text("received", 50, 50);
     v = msg.get(0).intValue();
   }
 }
@@ -23,11 +26,14 @@ void draw() {
   background(255);
  
   center += 5*v;
+  fill(0);
+  textSize(25);
+  text("v:" + " " + v, 100, 100);
   float p_height = height/2.5;
   float p_width = p_height;
   float b_width = p_width*0.065;
   float y = height-0.5*p_height;
-  
+  v = 0;
   //back
   stroke(0);
   fill(255);
