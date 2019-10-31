@@ -17,7 +17,7 @@ def output(ch1, ch2, ch3, ch4):
     #editing
 
     msg = osc_message_builder.OscMessageBuilder(address='/move/')
-    msg.add_arg(ch1)
+    msg.add_arg((ch1*2-0.5)//1)
     msg = msg.build()
     print("Sending", msg.dgram)
     client.send(msg)
@@ -29,7 +29,7 @@ def set_filter(address: str, *args: List[Any]) -> None:
         return
 
     # Check that address starts with filter
-    if address[:29] != '/muse/elements/beta_relative/':
+    if address[:28] != '/muse/elements/beta_relative':
         return
 
     print(f'{args[0]}, {args[1]}, {args[2]}, {args[3]}')
