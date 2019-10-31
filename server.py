@@ -13,7 +13,7 @@ def set_filter(address: str, *args: List[Any]) -> None:
         return
 
     # Check that address starts with filter
-    if address[:29] != '/muse/elements/beta_relative/':
+    if address[:29] != '/muse/elements/beta_relative':
         return
 
     print(f'{time.time() - t}, {args[0]}, {args[1]}, {args[2]}, {args[3]}')
