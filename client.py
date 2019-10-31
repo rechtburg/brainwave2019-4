@@ -16,7 +16,7 @@ client = udp_client.UDPClient(args2.ip, args2.port)
 def output(ch1, ch2, ch3, ch4):
     #editing
 
-    msg = osc_message_builder.OscMessageBuilder(address='/move/')
+    msg = osc_message_builder.OscMessageBuilder(address='/move')
     msg.add_arg((ch1*2-0.5)//1)
     msg = msg.build()
     print("Sending", msg.dgram)

@@ -13,7 +13,7 @@ def set_filter(address: str, *args: List[Any]) -> None:
         return
 
     # Check that address starts with filter
-    if address[:29] != '/move/':
+    if address[:29] != '/move':
         return
 
     print(f'{time.time() - t}, {args[0]}')
@@ -24,7 +24,7 @@ parser.add_argument("--port", type=int, default=5001, help="The port to listen o
 args = parser.parse_args()
 
 dispatcher = Dispatcher()
-dispatcher.map("/move/*", set_filter)  # Map wildcard address to set_filter function
+dispatcher.map("/move*", set_filter)  # Map wildcard address to set_filter function
 
 server = osc_server.ThreadingOSCUDPServer((args.ip, args.port), dispatcher)
 print("Serving on {}".format(server.server_address))
