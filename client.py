@@ -26,7 +26,7 @@ t = time.time()
 def output(ch1, ch2, ch3, ch4):
     newt = time.time()
     dt = newt - t
-    t = newt()
+    t = newt
     inner = ch3 - ch2
     outer = ch4 - ch1
     if len(data) == 10:
