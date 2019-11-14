@@ -17,7 +17,7 @@ args2 = parser2.parse_args()
 
 client = udp_client.UDPClient(args2.ip, args2.port)
 
-classifier = joblib.load(classifier.sav)
+classifier = joblib.load('classifier.sav')
 
 data = []
 
