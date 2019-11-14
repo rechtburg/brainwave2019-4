@@ -51,7 +51,7 @@ def output(ch1, ch2, ch3, ch4, data):
             data.append(inner).append(outer)'''
         return data.append(inner).append(outer)  
 
-def set_filter(data address: str, *args: List[Any]) -> None:
+def set_filter(data, address: str, *args: List[Any]) -> None:
     # We expect four arguments
     if len(args) != 4:
         return
@@ -69,7 +69,7 @@ parser.add_argument("--port", type=int, default=5000, help="The port to listen o
 args = parser.parse_args()
 
 dispatcher = Dispatcher()
-dispatcher.map("/muse/elements/beta_relative*", data = set_filter)  # Map wildcard address to set_filter function
+dispatcher.map((data, "/muse/elements/beta_relative*"), data = set_filter)  # Map wildcard address to set_filter function
 
 server = osc_server.ThreadingOSCUDPServer((args.ip, args.port), dispatcher)
 print("Serving on {}".format(server.server_address))
