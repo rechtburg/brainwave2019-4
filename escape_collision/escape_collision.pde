@@ -66,6 +66,10 @@ int highscore = 0;
 int total_obstacle = 0;
 int cnt = 1;
 
+// For collision judge
+int next = 0;
+int v_cnt = 0;
+
 // float signal_value = 0;
 // void oscEvent(OscMessage msg){
 //   if(msg.checkAddrPattern("/move")){
