@@ -21,29 +21,34 @@ classifier = joblib.load('classifier.sav')
 
 data = []
 
-t = time.time()
+#t = time.time()
 
 def output(ch1, ch2, ch3, ch4):
-    newt = time.time()
-    dt = newt - t
-    t = newt
+    #newt = time.time()
+    #dt = newt - t
+    #t = newt
     inner = ch3 - ch2
     outer = ch4 - ch1
     if len(data) == 10:
+        '''
         if dt > 0.1:
             data = data[4:].append(inner/2).append(outer/2).append(inner/2).append(outer/2)
         else:
             data = data[2:].append(inner).append(outer)
+'''
+        data = data[2:].append(inner).append(outer)
         msg = osc_message_builder.OscMessageBuilder(address='/move')
         msg.add_arg(classifier.predict(pd.DataFrame(data).T))
         msg = msg.build()
         print("Sending", msg.dgram)
         client.send(msg)
     else:
+        '''
         if dt > 0.1:
             data.append(inner/2).append(outer/2).append(inner/2).append(outer/2)
         else:
-            data.append(inner).append(outer)
+            data.append(inner).append(outer)'''
+        data.append(inner).append(outer)  
 
 def set_filter(address: str, *args: List[Any]) -> None:
     # We expect four arguments
