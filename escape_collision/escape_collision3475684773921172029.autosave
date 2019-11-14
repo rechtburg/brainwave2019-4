@@ -48,8 +48,6 @@ float cl_velocity = 5;
 // For ObstaclePoint
 int obstacle_score = 0;
 int text_size;
-int text_pos_x = 100;
-int text_pos_y = 250;
 
 int time = 0;
 int startTime = 0;
@@ -90,16 +88,12 @@ void draw() {
       escaped_obstacle += 1;
       r = rand.nextInt(100) + 60;
       text_size = obstaclePoint.calc_text_size(obstacle_score, 130);
-      text_pos_x = rand.nextInt(500) + 140;
-      text_pos_y = rand.nextInt(300) + 50;
-    }
-
-    if(obstacle_score != 0) {
-      obstaclePoint.display(text_pos_x, text_pos_y, obstacle_score, text_size);
+      obstaclePoint.display(50, 50, 255, obstacle_score, text_size);
     }
 
     time = millis() - startTime;
     scoreBoard.display(cnt, escaped_obstacle, current_game_score, time, highscore);
+    velocity += 0.005;
   } else {
     backGround.display();
     fill(255);
