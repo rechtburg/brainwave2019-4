@@ -77,22 +77,22 @@ void draw() {
       v_cnt = 0;
 
    
-      if(((cx+r >= airplane.center-airplane.b_width && cx+r <= airplane.center+airplane.b_width) ||
-          (cx >= airplane.center-airplane.b_width && cx <= airplane.center+airplane.b_width)    ||
-          cx <= airplane.center-airplane.b_width && airplane.center+airplane.b_width <= cx+r) &&
-          ((cy+r/2 <= height+airplane.vy && cy+r/2 >= height - airplane.p_height+airplane.vy) ||
-          (cy <= height+airplane.vy && cy >= height - airplane.p_height+airplane.vy))
-          ){
-          noLoop();
-      }
-      if(((cx+r >= airplane.center-airplane.p_width*0.425 && cx+r <= airplane.center+airplane.p_width*0.425) ||
-          (cx >= airplane.center-airplane.p_width*0.425 && cx <= airplane.center+airplane.p_width*0.425) 
-          ) &&
-          ((cy+r/2 <=  airplane.y+airplane.vy && cy+r/2 >= airplane.y-airplane.p_width*0.2*(float)Math.tan(airplane.arg)+airplane.vy) ||
-          (cy <= airplane.y+airplane.vy && cy >= airplane.y-airplane.p_width*0.2*(float)Math.tan(airplane.arg)+airplane.vy))
-          ){
-          noLoop();
-      }
+    if(((cx+r >= airplane.center-airplane.b_width && cx+r <= airplane.center+airplane.b_width) ||
+        (cx >= airplane.center-airplane.b_width && cx <= airplane.center+airplane.b_width)    ||
+        cx <= airplane.center-airplane.b_width && airplane.center+airplane.b_width <= cx+r) &&
+        ((cy+r/2 <= height+airplane.vy && cy+r/2 >= height - airplane.p_height+airplane.vy) ||
+        (cy <= height+airplane.vy && cy >= height - airplane.p_height+airplane.vy))
+        ){
+        noLoop();
+    }
+    if(((cx+r >= airplane.center-airplane.p_width*0.425 && cx+r <= airplane.center+airplane.p_width*0.425) ||
+        (cx >= airplane.center-airplane.p_width*0.425 && cx <= airplane.center+airplane.p_width*0.425) 
+        ) &&
+        ((cy+r/2 <=  airplane.y+airplane.vy && cy+r/2 >= airplane.y-airplane.p_width*0.2*(float)Math.tan(airplane.arg)+airplane.vy) ||
+        (cy <= airplane.y+airplane.vy && cy >= airplane.y-airplane.p_width*0.2*(float)Math.tan(airplane.arg)+airplane.vy))
+        ){
+        noLoop();
+    }
     
     bird.display(cx, cy, r);
     cy += velocity;
