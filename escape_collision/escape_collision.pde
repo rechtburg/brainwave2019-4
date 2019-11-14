@@ -66,12 +66,12 @@ int highscore = 0;
 int total_obstacle = 0;
 int cnt = 1;
 
-float signal_value = 0;
-void oscEvent(OscMessage msg){
-  if(msg.checkAddrPattern("/move")){
-    signal_value = msg.get(0).intValue();
-  }
-}
+// float signal_value = 0;
+// void oscEvent(OscMessage msg){
+//   if(msg.checkAddrPattern("/move")){
+//     signal_value = msg.get(0).intValue();
+//   }
+// }
 
 void draw() {
   if(cnt <= 3){ 
