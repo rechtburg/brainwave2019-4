@@ -66,7 +66,7 @@ int highscore = 0;
 int total_obstacle = 0;
 int cnt = 1;
 
-int signal_value;
+float signal_value = 0;
 void oscEvent(OscMessage msg){
   if(msg.checkAddrPattern("/move")){
     signal_value = msg.get(0).intValue();
